@@ -1,0 +1,15 @@
+C:\Users\Crazy\OneDrive\Documents\C#\CharacterSheetBuilder\bin\Debug\net8.0\CharacterSheetBuilder.exe
+C:\Users\Crazy\OneDrive\Documents\C#\CharacterSheetBuilder\bin\Debug\net8.0\CharacterSheetBuilder.deps.json
+C:\Users\Crazy\OneDrive\Documents\C#\CharacterSheetBuilder\bin\Debug\net8.0\CharacterSheetBuilder.runtimeconfig.json
+C:\Users\Crazy\OneDrive\Documents\C#\CharacterSheetBuilder\bin\Debug\net8.0\CharacterSheetBuilder.dll
+C:\Users\Crazy\OneDrive\Documents\C#\CharacterSheetBuilder\bin\Debug\net8.0\CharacterSheetBuilder.pdb
+C:\Users\Crazy\OneDrive\Documents\C#\CharacterSheetBuilder\obj\Debug\net8.0\CharacterSheetBuilder.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Crazy\OneDrive\Documents\C#\CharacterSheetBuilder\obj\Debug\net8.0\CharacterSheetBuilder.AssemblyInfoInputs.cache
+C:\Users\Crazy\OneDrive\Documents\C#\CharacterSheetBuilder\obj\Debug\net8.0\CharacterSheetBuilder.AssemblyInfo.cs
+C:\Users\Crazy\OneDrive\Documents\C#\CharacterSheetBuilder\obj\Debug\net8.0\CharacterSheetBuilder.csproj.CoreCompileInputs.cache
+C:\Users\Crazy\OneDrive\Documents\C#\CharacterSheetBuilder\obj\Debug\net8.0\CharacterSheetBuilder.sourcelink.json
+C:\Users\Crazy\OneDrive\Documents\C#\CharacterSheetBuilder\obj\Debug\net8.0\CharacterSheetBuilder.dll
+C:\Users\Crazy\OneDrive\Documents\C#\CharacterSheetBuilder\obj\Debug\net8.0\refint\CharacterSheetBuilder.dll
+C:\Users\Crazy\OneDrive\Documents\C#\CharacterSheetBuilder\obj\Debug\net8.0\CharacterSheetBuilder.pdb
+C:\Users\Crazy\OneDrive\Documents\C#\CharacterSheetBuilder\obj\Debug\net8.0\CharacterSheetBuilder.genruntimeconfig.cache
+C:\Users\Crazy\OneDrive\Documents\C#\CharacterSheetBuilder\obj\Debug\net8.0\ref\CharacterSheetBuilder.dll
