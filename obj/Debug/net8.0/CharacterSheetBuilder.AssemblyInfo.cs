@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CharacterSheetBuilder")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f5ea8b07463f6084399326fff77aea12e085391f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+60de099f7ae8286341d0691b378dacd42a656d48")]
 [assembly: System.Reflection.AssemblyProductAttribute("CharacterSheetBuilder")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CharacterSheetBuilder")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

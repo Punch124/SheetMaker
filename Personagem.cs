@@ -9,8 +9,8 @@ public class Personagem
 	public Antecedentes Antecedentes { get; set; }
 	public Atributos Atributos { get; set; }
 
-
-	public Personagem (string nome)
+    
+    public Personagem (string nome)
 	{
 		Nome = nome; 
 		Atributos = new Atributos();
@@ -93,5 +93,9 @@ public class Personagem
     public Dictionary<int, int> CalcularCustoPontos()
     {
         return CalcularCusto();
+    }
+    public void AplicarAtributosRaca()
+    {
+        Raca.AplicarIncrementos(this);
     }
 }

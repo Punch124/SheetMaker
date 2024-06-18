@@ -4,16 +4,18 @@
     {
         static void Main(string[] args)
         {
-            //Saudação
-
+            // Saudação
             Console.WriteLine("Bem vindo ao criador de fichas de D&D 5E!");
 
-            //coletor de informações
+            // Coletor de informações
             Console.WriteLine("Digite o nome do seu personagem:");
             string nomePersonagem = Console.ReadLine();
             Personagem personagem = new Personagem(nomePersonagem);
+
             Console.WriteLine("Distribua seus pontos entre os atributos. Total de pontos disponíveis: 27");
             personagem.MostrarTabelaDeCustos();
+
+            // Coletar valores para os atributos
             Console.WriteLine("Digite o valor para Força (8-15):");
             int forca = int.Parse(Console.ReadLine());
             Console.WriteLine("Digite o valor para Destreza (8-15):");
@@ -29,14 +31,13 @@
 
             personagem.DistribuirPontos(forca, destreza, constituicao, inteligencia, sabedoria, carisma);
 
-            Console.WriteLine("Distribua os pontos entre os atributos (Total deve ser 27):");
-            
-
+            // Escolha da classe
             Dictionary<string, Type> classes = new Dictionary<string, Type>
             {
-                { "Bárbaro", typeof(Barbaro) }
+                { "Bárbaro", typeof(Barbaro) },
+                { "Bardo", typeof (Bardo) }
             };
-            Console.WriteLine("escolha uma classe: ");
+            Console.WriteLine("Escolha uma classe: ");
             int i = 1;
             foreach (var nomeClasse in classes.Keys)
             {
@@ -45,20 +46,16 @@
             }
             int escolhaClasse = int.Parse(Console.ReadLine());
             string classeEscolhida = new List<string>(classes.Keys)[escolhaClasse - 1];
-
             personagem.Classe = (Classe)Activator.CreateInstance(classes[classeEscolhida]);
 
+            // Escolha da raça e sub-raça
             Dictionary<string, List<string>> racas = new Dictionary<string, List<string>>
             {
                 { "Humano", null },
                 { "Anão", new List<string> { "Anão da Colina", "Anão da Montanha" } }
-                // Adicione mais raças e sub-raças conforme necessário
             };
 
-            // Obter a escolha da raça
             string racaEscolhida = ObterEscolhaDoUsuario("Escolha uma raça:", racas.Keys);
-
-            // Obter a escolha da sub-raça, se aplicável
             List<string> subracasDisponiveis = racas[racaEscolhida];
             string subracaEscolhida = null;
             if (subracasDisponiveis != null)
@@ -66,10 +63,45 @@
                 subracaEscolhida = ObterEscolhaDoUsuario("Escolha uma sub-raça:", subracasDisponiveis);
             }
 
-            // Instanciar o personagem com base na raça e sub-raça escolhidas
-            Raca raca = CriarRaca(racaEscolhida, subracaEscolhida);
+            // Instanciar a raça escolhida
+            personagem.Raca = CriarRaca(racaEscolhida, subracaEscolhida);
 
-            Console.WriteLine($"Você escolheu a raça: {raca.GetType().Name}");
+            // Aplicar incrementos de atributos da raça
+            personagem.AplicarAtributosRaca();
+
+            //Antecedentes
+            Dictionary<string, Type> antecedentes = new Dictionary<string, Type>
+                 {
+                { "Artesão da Guilda", typeof(ArtesaoGuilda) },
+                     // Adicione mais antecedentes conforme necessário
+                  };
+            Console.WriteLine("Escolha um antecedente:");
+            i = 1;
+            foreach (var nomeAntecedente in antecedentes.Keys)
+            {
+                Console.WriteLine($"{i}. {nomeAntecedente}");
+                i++;
+            }
+            int escolhaAntecedente = int.Parse(Console.ReadLine());
+            string antecedenteEscolhido = new List<string>(antecedentes.Keys)[escolhaAntecedente - 1];
+
+            personagem.Antecedentes = (Antecedentes)Activator.CreateInstance(antecedentes[antecedenteEscolhido]);
+
+            // Exibir informações do personagem
+            Console.WriteLine($"Você escolheu a raça: {personagem.Raca.Nome}");
+            Console.WriteLine($"Você escolheu o antecedente: {personagem.Antecedentes.Nome}");
+            Console.WriteLine("Idiomas:");
+            Console.WriteLine(string.Join(", ", personagem.Raca.Idiomas));
+            Console.WriteLine("Proficiências:");
+            Console.WriteLine(string.Join(", ", personagem.Raca.Proficiencias));
+            Console.WriteLine($"Habilidade Única:  {personagem.Classe.HabilidadeUnica}");
+            Console.WriteLine($"Atributos Finais:");
+            Console.WriteLine($"Força: {personagem.Atributos.Forca}");
+            Console.WriteLine($"Destreza: {personagem.Atributos.Destreza}");
+            Console.WriteLine($"Constituição: {personagem.Atributos.Constituicao}");
+            Console.WriteLine($"Inteligência: {personagem.Atributos.Inteligencia}");
+            Console.WriteLine($"Sabedoria: {personagem.Atributos.Sabedoria}");
+            Console.WriteLine($"Carisma: {personagem.Atributos.Carisma}");
         }
 
         private static string ObterEscolhaDoUsuario(string mensagem, IEnumerable<string> opcoes)
@@ -99,9 +131,10 @@
                             return new AnaoMontanha();
                     }
                     break;
+
                     // Adicione outros casos conforme necessário
             }
             throw new ArgumentException("Raça ou sub-raça inválida.");
         }
     }
-    }
+}
